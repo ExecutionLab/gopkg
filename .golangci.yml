@@ -1,0 +1,45 @@
+linters:
+  enable-all: true
+  disable:
+    - goimports
+    - maligned
+    - gochecknoglobals
+    - gochecknoinits
+    - gosec
+    - gomnd
+    - gomodguard
+    - exhaustivestruct
+    - golint
+    - scopelint
+    - interfacer
+
+run:
+  timeout: 20m
+
+  # include test files or not, default is true
+  tests: false
+
+issues:
+  exclude-use-default: true
+
+linters-settings:
+  funlen:
+    lines: 270
+    statements: 130
+  gocyclo:
+    min-complexity: 100
+  gocognit:
+    min-complexity: 100
+  cyclop:
+    max-complexity: 50
+  nestif:
+    min-complexity: 50
+  tagliatelle:
+    case:
+      use-field-name: true
+      rules:
+        # any struct tag type can be used.
+        # support string case: `camel`, `pascal`, `kebab`, `snake`, `goCamel`, `goPascal`, `goKebab`, `goSnake`, `upper`, `lower`
+        json: snake
+  gci:
+    local-prefixes: gitlab.com/husol/pkg
