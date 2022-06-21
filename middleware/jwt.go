@@ -34,7 +34,7 @@ func (t TokenService) EncodeRefreshToken(
 	expire time.Duration,
 ) (string, error) {
 	if issuer == "" {
-		issuer = "Husol"
+		issuer = "Executionlab"
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, model.UserClaims{
@@ -52,7 +52,7 @@ func (t TokenService) EncodeRefreshToken(
 
 func (t TokenService) Encode(userID int64, email string, issuer string, expire time.Duration) (string, error) {
 	if issuer == "" {
-		issuer = "Husol"
+		issuer = "Executionlab"
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, model.UserClaims{
